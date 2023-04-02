@@ -1,4 +1,4 @@
-{% load static %} 
+{% load static %}
 <header class="header">
   <div class="container container--narrow">
     <a href="/" class="header__logo">
@@ -14,21 +14,27 @@
         <li class="header__menuItem">
           <a href="{% url 'weddings' %}">Portfolio</a>
         </li>
-        <li class="header__menuItem"><a href="{% url 'profiles' %}">Photographers</a></li>
-{% if request.user.is_authenticated %}
-        <li class="header__menuItem"><a href="{% url 'messages' %}">Inbox</a></li>
-        <li class="header__menuItem"><a href="{% url 'account' %}">Account</a></li>       
-          <li class="header__menuItem">
-            <a href="{% url 'logout' %}" class="btn btn--sub">Logout</a>
-          </li>
-          {% else %}
-          <li class="header__menuItem">
+        <li class="header__menuItem">
+          <a href="{% url 'profiles' %}">Photographers</a>
+        </li>
+        {% if request.user.is_authenticated %}
+        <li class="header__menuItem">
+          <a href="{% url 'messages' %}">Messages</a>
+        </li>
+        <li class="header__menuItem">
+          <a href="{% url 'account' %}">Account</a>
+        </li>
+        <li class="header__menuItem">
+          <a href="{% url 'logout' %}" class="btn btn--sub">Logout</a>
+        </li>
+        {% else %}
+        <li class="header__menuItem">
           <a href="{% url 'register' %}" class="btn btn--sub">Sign Up</a>
         </li>
         <li class="header__menuItem">
           <a href="{% url 'login' %}" class="btn btn--sub">Log In</a>
         </li>
-{% endif %}  
+        {% endif %}
       </ul>
     </nav>
   </div>
